@@ -15,6 +15,9 @@ import torch.nn as nn
 import torchvision as tv
 
 
+IMAGE_NET_MEAN = [0.485, 0.456, 0.406]
+IMAGE_NET_STD = [0.229, 0.224, 0.225]
+
 MODELS = {
     "resnet18": (tv.models.resnet18, 512),
     "resnet34": (tv.models.resnet34, 512),
