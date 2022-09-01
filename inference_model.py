@@ -96,6 +96,8 @@ class InferenceModel:
     def __init__(self, path_to_model_state: Path):
         self.transform = Transform().val_transform
         model_state = torch.load(path_to_model_state, map_location=lambda storage, loc: storage)
+        print(model_state)
+        model_state['model_type']= 'resnet18'
         self.model = create_model(model_type=model_state["model_type"], drop_out=0)
         self.model.load_state_dict(model_state["state_dict"])
         self.model = self.model.to(device)
